@@ -29,20 +29,20 @@
 /*---------------------- Flash Configuration ----------------------------------
   <h> Flash Configuration
     <o0> Flash Base Address    <0x08000000>
-    <o1> Flash Size (in Bytes) <    64 * 1024>
+    <o1> Flash Size (in Bytes) <   128 * 1024>
   </h>
   -----------------------------------------------------------------------------*/
 __ROM_BASE = 0x08000000;
-__ROM_SIZE = 0x00010000;
+__ROM_SIZE = 0x00020000;
 
 /*--------------------- Embedded RAM Configuration ----------------------------
   <h> RAM Configuration
     <o0> RAM Base Address    <0x20000000>
-    <o1> RAM Size (in Bytes) <        8 * 1024>
+    <o1> RAM Size (in Bytes) <      16 * 1024>
   </h>
  -----------------------------------------------------------------------------*/
 __RAM_BASE = 0x20000000;
-__RAM_SIZE = 0x00002000;
+__RAM_SIZE = 0x00004000;
 
 /*--------------------- Stack / Heap Configuration ----------------------------
   <h> Stack / Heap Configuration

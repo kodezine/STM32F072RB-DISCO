@@ -9,7 +9,7 @@
     {
         "name": "Blinky_AC6_Demo",
         "displayName": "Blinky_AC6_Demo",
-        "description": "Blinky STM32F03080 Discovery board demo with AC6",
+        "description": "Blinky STM32F072RB Discovery board demo with AC6",
         "generator": "Ninja",
         "environment": {
             "CORTEX_TYPE": "cm0"
@@ -27,7 +27,7 @@
     {
         "name": "Blinky_GCC_Demo",
         "displayName": "Blinky_GCC_Demo",
-        "description": "Blinky STM32F03080 Discovery board demo with arm gcc",
+        "description": "Blinky STM32F072RB Discovery board demo with arm gcc",
         "generator": "Ninja",
         "environment": {
             "CORTEX_TYPE": "cm0"
@@ -45,7 +45,7 @@
     {
         "name": "Blinky_llvm_Demo",
         "displayName": "Blinky_llvm_Demo",
-        "description": "Blinky STM32F03080 Discovery board demo with llvm clang",
+        "description": "Blinky STM32F072RB Discovery board demo with llvm clang",
         "generator": "Ninja",
         "environment": {
             "CORTEX_TYPE": "cm0"

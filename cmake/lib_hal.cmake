@@ -30,22 +30,27 @@ set(hal_drivers_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32F0xx_HAL_D
 set(hal_drivers_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32F0xx_HAL_Driver/Src")
 set(hal_drivers_SOURCES
     ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal.c
+    ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_can.c
     ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_cortex.c
     ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_dma.c
     ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_exti.c
     ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_flash.c
     ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_flash_ex.c
     ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_gpio.c
-    ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_i2c_ex.c
     ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_i2c.c
-    ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_pwr_ex.c
+    ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_i2c_ex.c
+    ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_pcd.c
+    ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_pcd_ex.c
     ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_pwr.c
-    ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_rcc_ex.c
+    ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_pwr_ex.c
     ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_rcc.c
-    ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_tim_ex.c
+    ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_rcc_ex.c
+    ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_spi.c
+    ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_spi_ex.c
     ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_tim.c
-    ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_uart_ex.c
-    ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_uart.c
+    ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_tim_ex.c
+    ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_tsc.c
+    ${hal_drivers_SOURCE_DIR}/stm32f0xx_ll_usb.c
 )
 
 target_sources(${PROJECT_NAME}
@@ -69,18 +74,51 @@ target_include_directories(${PROJECT_NAME}
 target_compile_definitions(${PROJECT_NAME}
     PUBLIC
         USE_HAL_DRIVER
-        STM32F030x8
+        STM32F072xB
         __UVISION_VERSION="537"
         _RTE_
 )
 
 set(${PROJECT_NAME}_PUBLIC_HEADERS
-    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx.h
-    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f030x8.h
-    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/system_stm32f0xx.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_can.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_cortex.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_def.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_dma.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_dma_ex.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_exti.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_flash.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_flash_ex.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_gpio.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_gpio_ex.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_i2c.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_i2c_ex.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_pcd.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_pcd_ex.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_pwr.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_pwr_ex.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_rcc.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_rcc_ex.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_spi.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_spi_ex.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_tim.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_tim_ex.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_hal_tsc.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_bus.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_cortex.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_crs.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_dma.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_exti.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_gpio.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_i2c.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_pwr.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_rcc.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_system.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_usb.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_utils.h
     ${hal_core_INCLUDES_DIR}/main.h
-    ${hal_core_INCLUDES_DIR}/stm32h7xx_hal_conf.h
-    ${hal_core_INCLUDES_DIR}/stm32h7xx_it.h
+    ${hal_core_INCLUDES_DIR}/stm32f0xx_hal_conf.h
+    ${hal_core_INCLUDES_DIR}/stm32f0xx_it.h
 )
 
 set_target_properties(${PROJECT_NAME}
