@@ -14,20 +14,26 @@ include(cmake/lib_cmsis.cmake)
 set(cmsis_DEVICE_INCLUDE_DIR "${cmsis_SOURCE_DIR}/Device/ARM/ARMCM0/Include" CACHE STRING "Path to ARM0 from standard CMSIS")
 set(cmsis_CORE_INCLUDE_DIR "${cmsis_SOURCE_DIR}/CMSIS/Core/Include" CACHE STRING "Path to CMSIS core includes")
 
-set(hal_core_INCLUDES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc")
-set(hal_core_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Core/Src")
+set(hal_core_INCLUDES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cubemx/Core/Inc")
+set(hal_core_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cubemx/Core/Src")
 set(hal_core_SOURCES
     ${hal_core_SOURCE_DIR}/main.c
     ${hal_core_SOURCE_DIR}/stm32f0xx_hal_msp.c
     ${hal_core_SOURCE_DIR}/system_stm32f0xx.c
     ${hal_core_SOURCE_DIR}/stm32f0xx_hal_timebase_tim.c
+    ${hal_core_SOURCE_DIR}/gpio.c
+    ${hal_core_SOURCE_DIR}/can.c
+    ${hal_core_SOURCE_DIR}/i2c.c
+    ${hal_core_SOURCE_DIR}/spi.c
+    ${hal_core_SOURCE_DIR}/tsc.c
+    ${hal_core_SOURCE_DIR}/usb.c
 )
 
-set(hal_drivers_CMSIS_device_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Drivers/CMSIS/Device/ST/STM32F0xx/Include")
+set(hal_drivers_CMSIS_device_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cubemx/Drivers/CMSIS/Device/ST/STM32F0xx/Include")
 set(hal_drivers_CMSIS_INCLUDE_DIR "${cmake_SOURCE_DIR}/CMSIS/Core/Include")
-set(hal_drivers_legacy_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy")
-set(hal_drivers_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32F0xx_HAL_Driver/Inc")
-set(hal_drivers_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32F0xx_HAL_Driver/Src")
+set(hal_drivers_legacy_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cubemx/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy")
+set(hal_drivers_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cubemx/Drivers/STM32F0xx_HAL_Driver/Inc")
+set(hal_drivers_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cubemx/Drivers/STM32F0xx_HAL_Driver/Src")
 set(hal_drivers_SOURCES
     ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal.c
     ${hal_drivers_SOURCE_DIR}/stm32f0xx_hal_can.c
@@ -116,9 +122,16 @@ set(${PROJECT_NAME}_PUBLIC_HEADERS
     ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_system.h
     ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_usb.h
     ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_utils.h
+
+    ${hal_core_INCLUDES_DIR}/can.h
+    ${hal_core_INCLUDES_DIR}/gpio.h
+    ${hal_core_INCLUDES_DIR}/i2c.h
     ${hal_core_INCLUDES_DIR}/main.h
+    ${hal_core_INCLUDES_DIR}/spi.h
     ${hal_core_INCLUDES_DIR}/stm32f0xx_hal_conf.h
     ${hal_core_INCLUDES_DIR}/stm32f0xx_it.h
+    ${hal_core_INCLUDES_DIR}/tsc.h
+    ${hal_core_INCLUDES_DIR}/usb.h
 )
 
 set_target_properties(${PROJECT_NAME}
