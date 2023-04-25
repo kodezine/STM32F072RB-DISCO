@@ -25,6 +25,7 @@ set(hal_core_SOURCES
     ${hal_core_SOURCE_DIR}/can.c
     ${hal_core_SOURCE_DIR}/i2c.c
     ${hal_core_SOURCE_DIR}/spi.c
+    ${hal_core_SOURCE_DIR}/tim.c
     ${hal_core_SOURCE_DIR}/tsc.c
     ${hal_core_SOURCE_DIR}/usb.c
 )
@@ -120,6 +121,7 @@ set(${PROJECT_NAME}_PUBLIC_HEADERS
     ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_pwr.h
     ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_rcc.h
     ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_system.h
+    ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_tim.h
     ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_usb.h
     ${hal_drivers_CMSIS_device_INCLUDE_DIR}/stm32f0xx_ll_utils.h
 
@@ -130,6 +132,7 @@ set(${PROJECT_NAME}_PUBLIC_HEADERS
     ${hal_core_INCLUDES_DIR}/spi.h
     ${hal_core_INCLUDES_DIR}/stm32f0xx_hal_conf.h
     ${hal_core_INCLUDES_DIR}/stm32f0xx_it.h
+    ${hal_core_INCLUDES_DIR}/tim.h
     ${hal_core_INCLUDES_DIR}/tsc.h
     ${hal_core_INCLUDES_DIR}/usb.h
 )

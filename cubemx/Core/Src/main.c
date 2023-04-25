@@ -21,6 +21,7 @@
 #include "can.h"
 #include "i2c.h"
 #include "spi.h"
+#include "tim.h"
 #include "tsc.h"
 #include "usb.h"
 #include "gpio.h"
@@ -28,6 +29,10 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 extern void app_main(void);
+__weak void Timer14UpdateCallback(void)
+{
+  /* Do nothing */
+}
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -95,6 +100,7 @@ int main(void)
   MX_SPI2_Init();
   MX_TSC_Init();
   MX_USB_PCD_Init();
+  MX_TIM14_Init();
   /* USER CODE BEGIN 2 */
   app_main();
   /* USER CODE END 2 */
@@ -176,7 +182,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
-
+  if (htim->Instance == TIM14) {
+    Timer14UpdateCallback();
+  }
   /* USER CODE END Callback 1 */
 }
 
