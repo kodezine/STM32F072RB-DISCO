@@ -12,8 +12,11 @@ extern TSC_HandleTypeDef htsc;
 extern PCD_HandleTypeDef hpcd_USB_FS;
 extern TIM_HandleTypeDef htim14;
 
-static volatile uint8_t RxBuffer[64];
+static volatile uint8_t CANRxBuffer[64];
+static volatile uint8_t CANTxBuffer[64];
 static const uint8_t dot = '.';
+
+
 
 void Timer14UpdateCallback(void)
 {
