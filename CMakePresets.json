@@ -16,7 +16,7 @@
         },
         "binaryDir": "${sourceDir}/build/${presetName}",
         "cacheVariables": {
-            "FETCHCONTENT_UPDATES_DISCONNECTED": "OFF",
+            "FETCHCONTENT_UPDATES_DISCONNECTED": "ON",
             "DEMO": true,
             "CMAKE_BUILD_TYPE": "Debug",
             "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}",
