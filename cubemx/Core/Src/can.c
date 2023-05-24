@@ -88,7 +88,7 @@ void HAL_CAN_MspInit(CAN_HandleTypeDef* canHandle)
     HAL_I2CEx_EnableFastModePlus(SYSCFG_CFGR1_I2C_FMP_PB9);
 
     /* CAN interrupt Init */
-    HAL_NVIC_SetPriority(CEC_CAN_IRQn, 0, 0);
+    HAL_NVIC_SetPriority(CEC_CAN_IRQn, 1, 0);
     HAL_NVIC_EnableIRQ(CEC_CAN_IRQn);
   /* USER CODE BEGIN CAN_MspInit 1 */
 
