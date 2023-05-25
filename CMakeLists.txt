@@ -20,7 +20,7 @@ if(NOT cmake-toolchains_POPULATED)
     FetchContent_Populate(cmake-toolchains)
 endif()
 
-project(stm32f072rb_disco C ASM)
+project(stm32f072rb-disco-board)
 
 # Set pre-requsities for selecting the CPU identifier for cross compilation
 set(CORTEX_TYPE "cm0" CACHE STRING "CPU identifier for toolchains options")

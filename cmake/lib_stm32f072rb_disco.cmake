@@ -3,6 +3,10 @@ if(NOT (CMAKE_SYSTEM_PROCESSOR STREQUAL "arm"))
     message(FATAL_ERROR "${PROJECT_NAME} can only compile with a suitable ARM cross compiler; no target build.")
 endif()
 
+
+# Get the STM32 HAL and CMSIS drivers from STM GitHub pages
+include(${cmake-toolchains_SOURCE_DIR}/silicon/st/st.cmake)
+
 project(stm32f072rb_disco
     VERSION     0.0.1
     LANGUAGES   C ASM CXX
@@ -13,9 +17,6 @@ include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 include(CMakePrintHelpers)
 
-
-# Get the STM32 HAL and CMSIS drivers from STM GitHub pages
-include(${cmake-toolchains_SOURCE_DIR}/silicon/st/st.cmake)
 
 add_library(${PROJECT_NAME} STATIC)
 add_library(${PROJECT_NAME}::framework ALIAS ${PROJECT_NAME})
@@ -83,9 +84,3 @@ setTargetCompileOptions(PROJECT_NAME)
 target_link_libraries(${PROJECT_NAME}
     stm32${STM32_TYPE}xx_hal
 )
-
-# CPACK begins here
-install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
-set(CPACK_BINARY_7Z ON)
-set(CPACK_BINARY_NSIS OFF)
-include(CPack)
