@@ -3,10 +3,12 @@ node [
   fontsize = "12"
 ];
     "node2" [ label = "cmsis-core", shape = pentagon ];
-    "node4" [ label = "stm32f0xx_hal\n(stm32f0xx_hal::framework)", shape = octagon ];
-    "node4" -> "node2" [ style = dashed ] // stm32f0xx_hal -> cmsis-core
-    "node3" [ label = "cubemx\n(cubemx::framework)", shape = octagon ];
-    "node3" -> "node4"  // cubemx -> stm32f0xx_hal
-    "node5" [ label = "demo", shape = egg ];
-    "node5" -> "node3" [ style = dotted ] // demo -> cubemx
+    "node5" [ label = "stm32f0xx_hal\n(stm32f0xx_hal::framework)", shape = octagon ];
+    "node5" -> "node2" [ style = dashed ] // stm32f0xx_hal -> cmsis-core
+    "node4" [ label = "stm32f072rb_disco\n(stm32f072rb_disco::framework)", shape = octagon ];
+    "node4" -> "node5"  // stm32f072rb_disco -> stm32f0xx_hal
+    "node3" [ label = "demo", shape = egg ];
+    "node3" -> "node4" [ style = dotted ] // demo -> stm32f072rb_disco
+    "node3" [ label = "demo", shape = egg ];
+    "node3" -> "node3"  // demo -> demo
 }

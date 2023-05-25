@@ -1,10 +1,8 @@
-digraph "stm32f0xx_hal" {
+digraph "stm32f072rb_disco" {
 node [
   fontsize = "12"
 ];
-    "node5" [ label = "stm32f0xx_hal\n(stm32f0xx_hal::framework)", shape = octagon ];
     "node4" [ label = "stm32f072rb_disco\n(stm32f072rb_disco::framework)", shape = octagon ];
-    "node4" -> "node5"  // stm32f072rb_disco -> stm32f0xx_hal
     "node3" [ label = "demo", shape = egg ];
     "node3" -> "node4" [ style = dotted ] // demo -> stm32f072rb_disco
     "node3" [ label = "demo", shape = egg ];

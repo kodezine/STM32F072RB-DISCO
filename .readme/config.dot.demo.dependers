@@ -2,7 +2,7 @@ digraph "demo" {
 node [
   fontsize = "12"
 ];
-    "node5" [ label = "demo", shape = egg ];
-    "node5" [ label = "demo", shape = egg ];
-    "node5" -> "node5"  // demo -> demo
+    "node3" [ label = "demo", shape = egg ];
+    "node3" [ label = "demo", shape = egg ];
+    "node3" -> "node3"  // demo -> demo
 }

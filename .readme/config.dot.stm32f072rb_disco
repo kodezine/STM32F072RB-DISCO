@@ -1,8 +1,10 @@
-digraph "stm32f0xx_hal" {
+digraph "stm32f072rb_disco" {
 node [
   fontsize = "12"
 ];
+    "node4" [ label = "stm32f072rb_disco\n(stm32f072rb_disco::framework)", shape = octagon ];
     "node5" [ label = "stm32f0xx_hal\n(stm32f0xx_hal::framework)", shape = octagon ];
+    "node4" -> "node5"  // stm32f072rb_disco -> stm32f0xx_hal
     "node2" [ label = "cmsis-core", shape = pentagon ];
     "node5" -> "node2" [ style = dashed ] // stm32f0xx_hal -> cmsis-core
 }

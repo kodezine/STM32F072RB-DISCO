@@ -47,7 +47,7 @@ set(${PROJECT_NAME}_LLVM_LINKER_SCRIPT "llvm_arm.ld" CACHE STRING "llvm based li
 setTargetCompileOptions(PROJECT_NAME)
 setTargetLinkOptions(PROJECT_NAME)
 target_link_libraries(${PROJECT_NAME}
-    cubemx
+    stm32f072rb_disco
 )
 convertELF_BIN_HEX(${PROJECT_NAME})
 #set(DEVICE ${STM32_DEVICE})
