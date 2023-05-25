@@ -21,6 +21,9 @@ include(CMakePrintHelpers)
 add_library(${PROJECT_NAME} STATIC)
 add_library(${PROJECT_NAME}::framework ALIAS ${PROJECT_NAME})
 
+# export the library name as a board type
+set(STM32_BOARD_TYPE ${PROJECT_NAME} CACHE STRING "Board name for the STM32")
+
 set(cubemx_core_INCLUDES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cubemx/Core/Inc")
 set(cubemx_core_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cubemx/Core/Src")
 set(cubemx_core_SOURCES
