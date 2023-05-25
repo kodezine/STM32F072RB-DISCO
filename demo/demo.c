@@ -16,8 +16,6 @@ static volatile uint8_t CANRxBuffer[64];
 static volatile uint8_t CANTxBuffer[64];
 static const uint8_t dot = '.';
 
-
-
 void Timer14UpdateCallback(void)
 {
     HAL_GPIO_TogglePin(LD6_GPIO_Port, LD6_Pin);

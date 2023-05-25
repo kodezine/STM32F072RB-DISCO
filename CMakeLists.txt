@@ -2,7 +2,13 @@
 cmake_minimum_required(VERSION 3.25)
 include(CMakePrintHelpers)
 include(FetchContent)
-set(CORTEX_TYPE "cm0")
+
+# Set pre-requsities for selecting the CPU identifier for cross compilation
+set(CORTEX_TYPE "cm0" CACHE STRING "CPU identifier for toolchains options")
+# Set pre-requsites for selecting the STM32 microcontroller family type
+set(STM32_TYPE "f0" CACHE STRING "STM32 HAL Microcontroller type")
+# Set pre-requisite for exact device name of the STM32
+set(STM32_DEVICE "STM32F072xB" CACHE STRING "STM32 Microcontoller Device")
 # Set branch names for the sub modules dependencies
 set(GITHUB_BRANCH_TOOLCHAIN "HEAD" CACHE STRING "git SHA for CMake Toolchain")
 # set the location of all fetched repos
@@ -25,14 +31,15 @@ if(NOT cmake-toolchains_POPULATED)
 endif()
 
 
-project(hal
+project(cubemx
     VERSION     0.0.1
     LANGUAGES   C ASM CXX
     DESCRIPTION "Hardware Abstraction Layer for STM32CubeMx based project"
 )
+# Get the STM32 HAL and CMSIS drivers from STM GitHub pages
+include(${cmake-toolchains_SOURCE_DIR}/silicon/st/st.cmake)
 
-include(cmake/lib_hal.cmake)
+include(cmake/lib_cubemx.cmake)
 if(DEMO)
     add_subdirectory(demo)
 endif()
-
