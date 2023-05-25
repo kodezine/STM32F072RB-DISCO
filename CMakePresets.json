@@ -20,7 +20,7 @@
             "DEMO": true,
             "CMAKE_BUILD_TYPE": "Debug",
             "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}",
-            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/_deps/cmake-toolchains-src/armclang-community.cmake",
+            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/build/${presetName}/_deps/cmake-toolchains-src/armclang-community.cmake",
             "GITHUB_BRANCH_TOOLCHAIN": "HEAD"
         }
     },
@@ -38,7 +38,7 @@
             "DEMO": true,
             "CMAKE_BUILD_TYPE": "Debug",
             "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}",
-            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/_deps/cmake-toolchains-src/arm-none-eabi-gcc.cmake",
+            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/build/${presetName}/_deps/cmake-toolchains-src/arm-none-eabi-gcc.cmake",
             "GITHUB_BRANCH_TOOLCHAIN": "HEAD"
         }
     },
@@ -56,7 +56,7 @@
             "DEMO": true,
             "CMAKE_BUILD_TYPE": "Debug",
             "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}",
-            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/_deps/cmake-toolchains-src/llvm-clang-arm.cmake",
+            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/build/${presetName}/_deps/cmake-toolchains-src/llvm-clang-arm.cmake",
             "GITHUB_BRANCH_TOOLCHAIN": "HEAD"
         }
     }

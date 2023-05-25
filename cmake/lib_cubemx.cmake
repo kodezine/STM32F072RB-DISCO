@@ -10,11 +10,6 @@ include(CMakePrintHelpers)
 add_library(${PROJECT_NAME} STATIC)
 add_library(${PROJECT_NAME}::framework ALIAS ${PROJECT_NAME})
 
-# Get the CMSIS5 independent library from ARM CMSIS GitHub pages
-include(cmake/lib_cmsis.cmake)
-set(cmsis_DEVICE_INCLUDE_DIR "${cmsis_SOURCE_DIR}/Device/ARM/ARMCM0/Include" CACHE STRING "Path to ARM0 from standard CMSIS")
-set(cmsis_CORE_INCLUDE_DIR "${cmsis_SOURCE_DIR}/CMSIS/Core/Include" CACHE STRING "Path to CMSIS core includes")
-
 set(cubemx_core_INCLUDES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cubemx/Core/Inc")
 set(cubemx_core_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cubemx/Core/Src")
 set(cubemx_core_SOURCES
@@ -37,11 +32,8 @@ target_sources(${PROJECT_NAME}
 )
 cmake_print_variables(st_hal_SOURCE_DIR)
 target_include_directories(${PROJECT_NAME}
-    PRIVATE
     PUBLIC
-    $<BUILD_INTERFACE:${st_hal_SOURCE_DIR}/Inc>
-        $<BUILD_INTERFACE:${cmsis_CORE_INCLUDE_DIR}>
-        $<BUILD_INTERFACE:${cmsis_DEVICE_INCLUDE_DIR}>
+        $<BUILD_INTERFACE:${st_hal_SOURCE_DIR}/Inc>
         $<BUILD_INTERFACE:${cubemx_core_INCLUDES_DIR}>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}>
