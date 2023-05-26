@@ -1,0 +1,2 @@
+../demo_RS485Checker/RS485Checker.c:23:6:HAL_UARTEx_RxEventCallback	16	static
+../demo_RS485Checker/RS485Checker.c:34:6:app_main	8	static

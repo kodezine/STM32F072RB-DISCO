@@ -1,6 +1,14 @@
 # STM32F072RB-DISCO
 This is a STM32F072 Discovery board with CMake
 
+## Define BOARD_VARIANT
+For a special case of cubeMx, set BOARD_VARIANT to appropriate value
+
+| Name | Description |
+|---|---|
+| *Empty* | `main` typical default value |
+| `RS485Checker` | UART3 used with DMA for RS485 sniffer |
+
 ## HAL
 The STM32F072RB is driven with the HAL drivers extracted from the `f0` variant defined in the CMake variable `STM32_TYPE` to be enforced upon by the cmake-toolchain silicon type.
 

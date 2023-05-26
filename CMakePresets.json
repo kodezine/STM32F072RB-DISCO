@@ -43,6 +43,25 @@
         }
     },
     {
+        "name": "RS485Checker",
+        "displayName": "RS485Checker",
+        "description": "RS485Checker STM32F072RB Discovery board demo with arm gcc",
+        "generator": "Ninja",
+        "environment": {
+            "CORTEX_TYPE": "cm0"
+        },
+        "binaryDir": "${sourceDir}/build/${presetName}",
+        "cacheVariables": {
+            "FETCHCONTENT_UPDATES_DISCONNECTED": "OFF",
+            "DEMO": true,
+            "BOARD_VARIANT": "RS485Checker",
+            "CMAKE_BUILD_TYPE": "Debug",
+            "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}",
+            "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/build/${presetName}/_deps/cmake-toolchains-src/arm-none-eabi-gcc.cmake",
+            "GITHUB_BRANCH_TOOLCHAIN": "HEAD"
+        }
+    },
+    {
         "name": "Blinky_llvm_Demo",
         "displayName": "Blinky_llvm_Demo",
         "description": "Blinky STM32F072RB Discovery board demo with llvm clang",
@@ -69,6 +88,10 @@
         {
             "name": "Blinky_GCC_Demo",
             "configurePreset": "Blinky_GCC_Demo"
+        },
+        {
+            "name": "RS485Checker",
+            "configurePreset": "RS485Checker"
         },
         {
             "name": "Blinky_llvm_Demo",

@@ -31,7 +31,14 @@ set(STM32_DEVICE "STM32F072xB" CACHE STRING "STM32 Microcontoller Device")
 # Set branch names for the sub modules dependencies
 set(GITHUB_BRANCH_TOOLCHAIN "HEAD" CACHE STRING "git SHA for CMake Toolchain")
 
-include(${CMAKE_CURRENT_LIST_DIR}/cmake/lib_stm32f072rb_disco.cmake)
+if(DEFINED BOARD_VARIANT)
+    message(STATUS "STM32F072RB-Discovery board with ${BOARD_VARIANT} features.")
+else()
+    set(BOARD_VARIANT main)
+    message(STATUS "STM32F072RB-Discovery board with basic features.")
+endif()
+
+include(${CMAKE_CURRENT_LIST_DIR}/cmake/lib_stm32f072rb_disco_${BOARD_VARIANT}.cmake)
 if(DEMO)
-    add_subdirectory(demo)
+    add_subdirectory(cubemx_${BOARD_VARIANT}/demo_${BOARD_VARIANT})
 endif()
